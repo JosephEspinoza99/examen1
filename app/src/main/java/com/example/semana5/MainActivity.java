@@ -2,48 +2,60 @@ package com.example.semana5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.semana5.Adaptadores.AdaptadorUsuario;
-import com.example.semana5.Modelos.Usuario;
+import com.example.semana5.Adaptadores.AdaptadorLibros;
+import com.example.semana5.Adaptadores.AdaptadorRevistas;
+import com.example.semana5.Modelos.Libros;
+import com.example.semana5.Modelos.Revistas;
 import com.example.semana5.WebService.Asynchtask;
 import com.example.semana5.WebService.WebService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements Asynchtask {
-ListView LstOpciones;
+public class MainActivity extends AppCompatActivity implements Asynchtask, AdapterView.OnItemClickListener{
+    ListView LstOpciones;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        LstOpciones = (ListView)findViewById(R.id.lista_usuario);
-        View header = getLayoutInflater().inflate(R.layout.header,null);
+        LstOpciones = (ListView) findViewById(R.id.lista_usuario);
+        View header = getLayoutInflater().inflate(R.layout.header, null);
         LstOpciones.addHeaderView(header);
         Map<String, String> datos = new HashMap<String, String>();
-        WebService ws= new WebService("https://reqres.in/api/users",
+        WebService ws = new WebService("https://revistas.uteq.edu.ec/ws/journals.php",
                 datos, MainActivity.this, MainActivity.this);
         ws.execute("GET");
+        LstOpciones.setOnItemClickListener(this);
     }
 
 
     @Override
     public void processFinish(String result) throws JSONException {
-        JSONObject JSONlista = new JSONObject(result);
-        JSONArray JSONlistaUsuarios= JSONlista.getJSONArray("data");
-        ArrayList<Usuario>lstUsuarios= Usuario.JsonObjectsBuild(JSONlistaUsuarios);
-        AdaptadorUsuario adapatorUsuario = new AdaptadorUsuario(this, lstUsuarios);
-        LstOpciones.setAdapter(adapatorUsuario);
+        JSONArray jsonArray = new JSONArray(result);
+        ArrayList<Revistas> lstUsuarios = Revistas.JsonObjectsBuild(jsonArray);
+        AdaptadorRevistas adaptadorUsuario = new AdaptadorRevistas(this, lstUsuarios);
+        LstOpciones.setAdapter(adaptadorUsuario);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Revistas revista = (Revistas) adapterView.getItemAtPosition(position);
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        startActivity(intent);
     }
 }
+
 

@@ -8,16 +8,22 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-4dp"
         android:layout_marginTop="0dp"
-        android:background="#536DFE"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="USUARIOS-JOSEPH ESPINOZA"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-2dp" />
+        android:layout_marginEnd="0dp"
+        android:background="#025A27" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp"
+        app:srcCompat="@drawable/_ea18941_6ba4_4417_a781_ee2083947d5b" />
+
 </RelativeLayout>
