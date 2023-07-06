@@ -11,6 +11,7 @@ public class Libros {
     private String fecha;
     private String titulo;
 
+
     public String getCover() {
         return cover;
     }
@@ -35,10 +36,12 @@ public class Libros {
         this.titulo = titulo;
     }
 
+
     public Libros(JSONObject a) throws JSONException {
         cover = a.getString("cover").toString();
         fecha = a.getString("date_published").toString() ;
         titulo = a.getString("title").toString() ;
+
     }
     public static ArrayList<Libros> JsonObjectsBuild(JSONArray informacion) throws JSONException {
         ArrayList<Libros> libros = new ArrayList<>();

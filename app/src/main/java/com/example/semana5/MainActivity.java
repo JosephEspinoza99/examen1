@@ -26,7 +26,6 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements Asynchtask, AdapterView.OnItemClickListener{
     ListView LstOpciones;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +52,30 @@ public class MainActivity extends AppCompatActivity implements Asynchtask, Adapt
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         Revistas revista = (Revistas) adapterView.getItemAtPosition(position);
-        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-        startActivity(intent);
+        if (position == 1) {
+            int a = 3;
+            Bundle b = new Bundle();
+            b.putInt("ID", a);
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            intent.putExtras(b);
+            startActivity(intent);
+        } else if (position == 2) {
+            int d = 2;
+            Bundle b = new Bundle();
+            b.putInt("ID", d);
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            intent.putExtras(b);
+            startActivity(intent);
+        } else if (position == 3) {
+            int c = 1;
+            Bundle b = new Bundle();
+            b.putInt("ID", c);
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            intent.putExtras(b);
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "Error ", Toast.LENGTH_SHORT).show();
+        }
     }
 }
 
