@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements Asynchtask, Adapt
         View header = getLayoutInflater().inflate(R.layout.header, null);
         LstOpciones.addHeaderView(header);
         Map<String, String> datos = new HashMap<String, String>();
-        WebService ws = new WebService("https://revistas.uteq.edu.ec/ws/journals.php",
+        WebService ws = new WebService("https://fakestoreapi.com/products",
                 datos, MainActivity.this, MainActivity.this);
         ws.execute("GET");
         LstOpciones.setOnItemClickListener(this);
@@ -48,34 +48,26 @@ public class MainActivity extends AppCompatActivity implements Asynchtask, Adapt
         AdaptadorRevistas adaptadorUsuario = new AdaptadorRevistas(this, lstUsuarios);
         LstOpciones.setAdapter(adaptadorUsuario);
     }
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         Revistas revista = (Revistas) adapterView.getItemAtPosition(position);
-        if (position == 1) {
-            int a = 3;
-            Bundle b = new Bundle();
-            b.putInt("ID", a);
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-            intent.putExtras(b);
-            startActivity(intent);
-        } else if (position == 2) {
-            int d = 2;
-            Bundle b = new Bundle();
-            b.putInt("ID", d);
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-            intent.putExtras(b);
-            startActivity(intent);
-        } else if (position == 3) {
-            int c = 1;
-            Bundle b = new Bundle();
-            b.putInt("ID", c);
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-            intent.putExtras(b);
-            startActivity(intent);
-        } else {
-            Toast.makeText(getApplicationContext(), "Error ", Toast.LENGTH_SHORT).show();
-        }
+        String titulo;
+        String image;
+        String precio;
+        String categoria;
+        titulo= revista.getTitle().toString();
+        image= revista.getImage().toString();
+        precio= revista.getPrice().toString();
+        categoria= revista.getCategory().toString();
+        Bundle b = new Bundle();
+        b.putString("NOMBRE", titulo);
+        b.putString("IMAGEN", image);
+        b.putString("PRECIO", precio);
+        b.putString("CATEGORIA", categoria);
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        intent.putExtras(b);
+        startActivity(intent);
+
     }
 }
 

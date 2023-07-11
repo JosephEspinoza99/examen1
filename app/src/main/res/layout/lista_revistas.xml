@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/portada"
+        android:id="@+id/image"
         android:layout_width="218dp"
         android:layout_height="203dp"
         android:layout_gravity="center" />
@@ -16,8 +16,26 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/titulo"
+            android:id="@+id/categoria2"
             android:layout_width="400dp"
+            android:layout_height="32dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Cristiian Zambrano"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/titulo2"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Cristiian Zambrano"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pagar2"
+            android:layout_width="match_parent"
             android:layout_height="32dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="Cristiian Zambrano"

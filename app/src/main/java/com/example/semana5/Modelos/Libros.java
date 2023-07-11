@@ -7,40 +7,69 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Libros {
-    private String cover;
-    private String fecha;
-    private String titulo;
+    private String id;
+    private String category;
+    private String title;
+    private String price;
+    private String description;
+    private String image;
 
 
-    public String getCover() {
-        return cover;
+    public String getId() {
+        return id;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getCategory() {
+        return category;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Libros(JSONObject a) throws JSONException {
-        cover = a.getString("cover").toString();
-        fecha = a.getString("date_published").toString() ;
-        titulo = a.getString("title").toString() ;
+        id = a.getString("id").toString();
+        category = a.getString("category").toString() ;
+        title = a.getString("title").toString() ;
+        price = a.getString("price").toString() ;
+        description = a.getString("description").toString() ;
+        image = a.getString("image").toString() ;
 
     }
     public static ArrayList<Libros> JsonObjectsBuild(JSONArray informacion) throws JSONException {

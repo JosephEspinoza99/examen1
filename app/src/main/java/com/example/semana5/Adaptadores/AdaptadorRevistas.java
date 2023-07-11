@@ -17,15 +17,18 @@ import java.util.ArrayList;
 
 public class AdaptadorRevistas extends ArrayAdapter<Revistas> {
     public AdaptadorRevistas(Context context, ArrayList<Revistas> datos) {
-        super(context, R.layout.lista_revistas, datos);
+        super(context, R.layout.lista_libros, datos);
     }
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.lista_revistas, null);
-        TextView lblNombre = (TextView)item.findViewById(R.id.titulo);lblNombre.setText(getItem(position).getName());
-        ImageView imageView = (ImageView)item.findViewById(R.id.portada);
+        View item = inflater.inflate(R.layout.lista_libros, null);
+        TextView lbltitulo = (TextView)item.findViewById(R.id.categoria);lbltitulo.setText(getItem(position).getCategory());
+        TextView lblfecha = (TextView)item.findViewById(R.id.categoria2);lblfecha.setText(getItem(position).getTitle());
+        TextView lblprecio = (TextView)item.findViewById(R.id.precio);lblprecio.setText(getItem(position).getPrice());
+        TextView lbldescripcion = (TextView)item.findViewById(R.id.Descripcion);lbldescripcion.setText(getItem(position).getDescription());
+        ImageView imageView = (ImageView)item.findViewById(R.id.image);
         Glide.with(this.getContext())
-                .load(getItem(position).getPortada())
+                .load(getItem(position).getImage())
                 .into(imageView);
         return(item);
     }

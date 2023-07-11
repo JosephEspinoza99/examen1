@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/portada"
+        android:id="@+id/image"
         android:layout_width="131dp"
         android:layout_height="144dp" />
 
@@ -17,33 +18,33 @@
         android:gravity="center_horizontal|center_vertical">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/categoria"
             android:layout_width="263dp"
             android:layout_height="wrap_content"
-            android:text="Titulo:" />
+            android:text="Category" />
 
         <TextView
-            android:id="@+id/titulo"
+            android:id="@+id/categoria2"
             android:layout_width="262dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical"
-            android:text="  Cristiian Zambrano"
+            android:text="Title"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/precio"
             android:layout_width="263dp"
             android:layout_height="wrap_content"
-            android:text="Fecha de publicacion:" />
+            android:text="Price" />
 
         <TextView
-            android:id="@+id/fecha"
+            android:id="@+id/Descripcion"
             android:layout_width="262dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="  cristian@gmail.com"
+            android:text="Description"
             android:textSize="14sp"
             android:textStyle="normal" />
 

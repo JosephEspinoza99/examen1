@@ -1,15 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lista_libros"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="285dp"
+        android:layout_height="316dp"
+        android:layout_gravity="center" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/C"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/categoria2"
+            android:layout_width="400dp"
+            android:layout_height="32dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Cristiian Zambrano"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/titulo2"
+            android:layout_width="399dp"
+            android:layout_height="67dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Cristiian Zambrano"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pagar2"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Cristiian Zambrano"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>

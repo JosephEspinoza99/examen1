@@ -3,47 +3,32 @@ package com.example.semana5;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.example.semana5.Adaptadores.AdaptadorLibros;
-import com.example.semana5.Adaptadores.AdaptadorRevistas;
-import com.example.semana5.Modelos.Libros;
-import com.example.semana5.Modelos.Revistas;
-import com.example.semana5.WebService.Asynchtask;
-import com.example.semana5.WebService.WebService;
+import com.bumptech.glide.Glide;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-public class MainActivity2 extends AppCompatActivity implements Asynchtask {
+public class MainActivity2 extends AppCompatActivity {
     ListView Lstlibros;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Bundle bundle  = this.getIntent().getExtras();
-        Lstlibros = (ListView)findViewById(R.id.lista_libros);
-        View header = getLayoutInflater().inflate(R.layout.header,null);
-        Lstlibros.addHeaderView(header);
-        int a = bundle.getInt("ID");
-        String url = "https://revistas.uteq.edu.ec/ws/issues.php?j_id=" + a;
-        Map<String, String> datos = new HashMap<String, String>();
-        WebService ws = new WebService(url, datos, MainActivity2.this, MainActivity2.this);
-        ws.execute("GET");
-    }
+        TextView Datos = (TextView)findViewById(R.id.categoria2);
+        Datos.setText("Categoria:"+" "+bundle.getString("CATEGORIA"));
+        TextView Datos2 = (TextView)findViewById(R.id.titulo2);
+        Datos2.setText(bundle.getString("NOMBRE"));
+        TextView Datos3 = (TextView)findViewById(R.id.pagar2);
+        Datos3.setText("TOTAL A PAGAR:"+" "+bundle.getString("PRECIO"));
+        String imageUrl = bundle.getString("IMAGEN");
+        ImageView imageView = findViewById(R.id.image);
+        Glide.with(this)
+                .load(imageUrl)
+                .into(imageView);
 
-    @Override
-    public void processFinish(String result) throws JSONException {
-        JSONArray jsonArray = new JSONArray(result);
-        ArrayList<Libros> lstUsuarios = Libros.JsonObjectsBuild(jsonArray);
-        AdaptadorLibros adaptadorLibros = new AdaptadorLibros(this, lstUsuarios);
-        Lstlibros.setAdapter(adaptadorLibros);
 
     }
+
 }
